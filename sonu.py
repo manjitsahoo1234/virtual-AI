@@ -71,12 +71,15 @@ if __name__ =="__main__":
             pyautogui.hotkey('alt','space')
             time.sleep(1)
             pyautogui.press("x")
+
+
     
         elif "search" in instruction:
             instruction=instruction.replace("search","")
             pyautogui.hotkey('alt','d')
             pyautogui.write(instruction)
-            pyautogui.press("enter")        
+            pyautogui.press("enter")
+
             
         elif "how are you" in instruction:
             talk("I am fine, how about you")
