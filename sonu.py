@@ -17,23 +17,7 @@ def talk(text):
     machine.say(text)
     machine.runAndWait()
 
-def welcome():
-    hour=int(datetime.datetime.now().hour)
-    if hour>0 and hour<12:
-        print("Good morning boss")
-        talk("Good morning boss")
-    elif hour>=12 and hour<17:
-        print("Good afternoon boss")
-        talk("Good afternoon boss")
-    elif hour>17 and hour<21:
-        print("Good evening boss")
-        talk("Good evening boss")
-    else:
-        print("Good night boss")
-        talk("Good night boss")
-
-welcome()
-talk("Good to see you.")
+talk("Hay happy good to see you.")
 talk("How can I help you")
 def input_instruction():
     global instruction
@@ -51,8 +35,6 @@ def input_instruction():
         print("Sorry please repeat..")
         return "None"
     return instruction
-
-
 if __name__ =="__main__":
     while True:
         instruction= input_instruction().lower()
@@ -62,13 +44,13 @@ if __name__ =="__main__":
             pywhatkit.playonyt(song)
         elif "time" in instruction:
             time= datetime.datetime.now().strftime("%I %M %p")
-            print(time)
             talk("current time"+ time)
+            print(time)
         elif "date" in instruction:
             date=datetime.datetime.now().strftime("%d / %m / %y")
+            talk("Today's date"+ date)
             print(date)
-            talk("Today's date"+ date)   
-        elif "movie folder" in instruction:
+        elif "movie" in instruction:
             os.startfile('E:\movies')
         elif "open" in instruction:
             instruction=instruction.replace("open","")
@@ -78,15 +60,12 @@ if __name__ =="__main__":
             pyautogui.press("enter")
         
         elif "gmail" in instruction:
-            pyautogui.moveTo(1130,154)
+            pyautogui.moveTo(1300,154)
             time.sleep(2)
-            pyautogui.click()
-        elif "youtube" in instruction:
-            pyautogui.moveTo(160,160)
             pyautogui.click()
 
         elif "close" in instruction:
-            pyautogui.hotkey('alt', 'F4')
+            pyautogui.hotkey('alt', 'f4')
 
         elif "maximize this window" in instruction:
             pyautogui.hotkey('alt','space')
@@ -119,4 +98,7 @@ if __name__ =="__main__":
         elif "ok bye" in instruction:
             talk("Thank you, have a good day")
             sys.exit()
+
 input_instruction()
+
+
